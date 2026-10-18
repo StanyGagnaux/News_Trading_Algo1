@@ -1,0 +1,14 @@
+# Python 3.13. Core:
+pandas==2.3.3
+numpy==2.3.4
+matplotlib==3.10.7
+requests==2.32.5
+python-dotenv==1.2.3
+yfinance==0.2.66
+# LLM scoring (Ollama via its OpenAI-compatible API) and optional providers:
+openai==3.3.1
+google-genai==2.20.0
+# optional: live pusher / Bloomberg conversion
+websocket-client==1.9.0
+openpyxl==3.1.5
+# anthropic        (optional provider, not used in the thesis runs)

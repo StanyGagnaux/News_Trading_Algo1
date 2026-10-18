@@ -1,0 +1,2 @@
+timestamp,script,what,output
+2026-10-18T18:45:04,src/score_news_llm.py --providers ollama --include-test-period --news data_sources/holdout/news_holdout_clean.csv --end 2026-10-16 (FROZEN_CONFIG_2026-10-18),"LLM scoring of holdout headlines only (no prices loaded or used); 6,723 scored rows",news_scored_llm_ollama_anon_holdout.csv

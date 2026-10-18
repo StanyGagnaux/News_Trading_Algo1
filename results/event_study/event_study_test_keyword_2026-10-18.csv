@@ -1,0 +1,111 @@
+scorer,split,group,adj,day,mean_bps,t_clustered,N
+keyword,all events,all,raw,0,66.5858924113498,12.693684214520209,13117
+keyword,all events,all,raw,1,-2.020574623609156,-0.4517916982395924,13119
+keyword,all events,all,raw,2,-2.298316611705908,-0.372010635764648,13094
+keyword,all events,all,raw,3,1.7787024209665019,0.2373108501365905,13066
+keyword,all events,all,raw,5,10.829385942533737,1.1138581101770773,13004
+keyword,all events,all,mkt,0,62.71918393037184,15.774507903500131,13117
+keyword,all events,all,mkt,1,0.5503327211640603,0.21577800304219816,13119
+keyword,all events,all,mkt,2,-1.7333847010916852,-0.41913023392378135,13094
+keyword,all events,all,mkt,3,-0.7871067857521843,-0.15407278407312322,13066
+keyword,all events,all,mkt,5,6.35559473613526,0.9841928491383435,13004
+keyword,|strength| tercile,low,raw,0,65.30248249606962,7.982642831965413,4372
+keyword,|strength| tercile,low,raw,1,1.270115285864561,0.2303183413769277,4373
+keyword,|strength| tercile,low,raw,2,-2.0272002038677046,-0.25574927126167757,4363
+keyword,|strength| tercile,low,raw,3,1.047246981070219,0.11782851990304427,4350
+keyword,|strength| tercile,low,raw,5,19.0828905484205,1.5458990042291292,4335
+keyword,|strength| tercile,low,mkt,0,62.093530766282875,9.136299600130817,4372
+keyword,|strength| tercile,low,mkt,1,2.240888997858757,0.5717967981443669,4373
+keyword,|strength| tercile,low,mkt,2,-3.0242976812453204,-0.5177812114866198,4363
+keyword,|strength| tercile,low,mkt,3,-4.406971014473461,-0.6565573167122988,4350
+keyword,|strength| tercile,low,mkt,5,8.894389332093303,0.9482149137104317,4335
+keyword,|strength| tercile,mid,raw,0,59.66929734257565,9.19122747973497,4373
+keyword,|strength| tercile,mid,raw,1,-4.266307168644955,-0.8422814986764539,4373
+keyword,|strength| tercile,mid,raw,2,-4.651386188943941,-0.6641804305484409,4364
+keyword,|strength| tercile,mid,raw,3,5.867413447108335,0.6577157038161943,4359
+keyword,|strength| tercile,mid,raw,5,8.577841723515348,0.7565680615252511,4336
+keyword,|strength| tercile,mid,mkt,0,56.363143113431256,10.080358350212096,4373
+keyword,|strength| tercile,mid,mkt,1,-1.5155456116297408,-0.4192124963219996,4373
+keyword,|strength| tercile,mid,mkt,2,-3.241010622294791,-0.5772322066036722,4364
+keyword,|strength| tercile,mid,mkt,3,3.889906019623535,0.5325877218210416,4359
+keyword,|strength| tercile,mid,mkt,5,6.960019255859311,0.7814458356258084,4336
+keyword,|strength| tercile,high,raw,0,74.7874794162341,9.739096107507136,4372
+keyword,|strength| tercile,high,raw,1,-3.0655319880470797,-0.5026411913036033,4373
+keyword,|strength| tercile,high,raw,2,-0.21773159964529376,-0.02447335624717214,4367
+keyword,|strength| tercile,high,raw,3,-1.5816051758669631,-0.1379531654173742,4357
+keyword,|strength| tercile,high,raw,5,4.825174834097227,0.32198011871088084,4333
+keyword,|strength| tercile,high,mkt,0,69.70233171762668,10.251940318058969,4372
+keyword,|strength| tercile,high,mkt,1,0.9256547772631668,0.20935285562531164,4373
+keyword,|strength| tercile,high,mkt,2,1.0629360803465273,0.1521239998710594,4367
+keyword,|strength| tercile,high,mkt,3,-1.8522179686062554,-0.20246868051098252,4357
+keyword,|strength| tercile,high,mkt,5,3.2107852990243417,0.27694435423750785,4333
+keyword,market-cap tercile (prior day),small,raw,0,95.18422641019907,11.29729831370671,4370
+keyword,market-cap tercile (prior day),small,raw,1,-3.5487923551040654,-0.5002923068454078,4372
+keyword,market-cap tercile (prior day),small,raw,2,-11.714657570925475,-1.3606877502977288,4366
+keyword,market-cap tercile (prior day),small,raw,3,-16.91962753082442,-1.5964397397496974,4357
+keyword,market-cap tercile (prior day),small,raw,5,-2.4336016766969206,-0.16081717852376426,4341
+keyword,market-cap tercile (prior day),small,mkt,0,94.21726655018858,12.307548509944587,4370
+keyword,market-cap tercile (prior day),small,mkt,1,1.3130852135065518,0.2530309971114525,4372
+keyword,market-cap tercile (prior day),small,mkt,2,-4.914190356959243,-0.660360078477334,4366
+keyword,market-cap tercile (prior day),small,mkt,3,-8.70733183057271,-0.9323162845358203,4357
+keyword,market-cap tercile (prior day),small,mkt,5,9.73275649019124,0.7561115496025086,4341
+keyword,market-cap tercile (prior day),mid,raw,0,67.76024252124839,8.60151684986008,4371
+keyword,market-cap tercile (prior day),mid,raw,1,1.7588758240931848,0.34359933813613014,4371
+keyword,market-cap tercile (prior day),mid,raw,2,8.622141394894461,1.0015973004201497,4365
+keyword,market-cap tercile (prior day),mid,raw,3,9.718246630120314,0.9075655145972137,4360
+keyword,market-cap tercile (prior day),mid,raw,5,16.487552705962642,1.2105691999138197,4337
+keyword,market-cap tercile (prior day),mid,mkt,0,60.99637917660638,9.101152923178638,4371
+keyword,market-cap tercile (prior day),mid,mkt,1,3.8044159838380556,1.0251868283548333,4371
+keyword,market-cap tercile (prior day),mid,mkt,2,5.853055612169987,0.9430060729608563,4365
+keyword,market-cap tercile (prior day),mid,mkt,3,4.617236424971022,0.5983963229740016,4360
+keyword,market-cap tercile (prior day),mid,mkt,5,6.433506759314377,0.6661337232592554,4337
+keyword,market-cap tercile (prior day),large,raw,0,36.904871890188076,6.212743687814633,4372
+keyword,market-cap tercile (prior day),large,raw,1,-4.046444806733484,-0.8542761406204347,4372
+keyword,market-cap tercile (prior day),large,raw,2,-3.2879135190193685,-0.4391587810777804,4359
+keyword,market-cap tercile (prior day),large,raw,3,13.062092697788026,1.390974179856534,4345
+keyword,market-cap tercile (prior day),large,raw,5,18.688395978256594,1.5124943904011698,4322
+keyword,market-cap tercile (prior day),large,mkt,0,32.952542959741,8.172287269113438,4372
+keyword,market-cap tercile (prior day),large,mkt,1,-3.2654005012653493,-1.1687431255308316,4372
+keyword,market-cap tercile (prior day),large,mkt,2,-5.7108514543007844,-1.1438900265938727,4359
+keyword,market-cap tercile (prior day),large,mkt,3,2.120389301072099,0.33004423560477053,4345
+keyword,market-cap tercile (prior day),large,mkt,5,3.124655504215143,0.3669268882418021,4322
+keyword,news category,analyst,raw,0,75.63862064046945,10.548662667612799,6704
+keyword,news category,analyst,raw,1,-4.925777586528551,-0.7028091892251989,6704
+keyword,news category,analyst,raw,2,-0.4514612855441894,-0.058377991440550364,6690
+keyword,news category,analyst,raw,3,0.02300927251815855,0.002343528327054274,6679
+keyword,news category,analyst,raw,5,11.062909329451054,0.8520399396619213,6642
+keyword,news category,analyst,mkt,0,73.23620432835575,12.701647987780058,6704
+keyword,news category,analyst,mkt,1,0.4238008136301268,0.12317512340026995,6704
+keyword,news category,analyst,mkt,2,5.3639753708402065,0.9437897176428879,6690
+keyword,news category,analyst,mkt,3,5.210980654971295,0.7015617210021984,6679
+keyword,news category,analyst,mkt,5,16.101671310276178,1.732967848488083,6642
+keyword,news category,corporate_event,raw,0,13.306873513656203,1.1151075355739042,826
+keyword,news category,corporate_event,raw,1,-11.564269101228803,-1.1597070842132242,826
+keyword,news category,corporate_event,raw,2,-32.39488291973703,-2.3821674779329935,825
+keyword,news category,corporate_event,raw,3,-36.62202811486904,-2.244712185627383,824
+keyword,news category,corporate_event,raw,5,-52.6187778222699,-2.2296347034465045,819
+keyword,news category,corporate_event,mkt,0,3.778800892772425,0.3778868604794187,826
+keyword,news category,corporate_event,mkt,1,-11.770235953911063,-1.5207282669899547,826
+keyword,news category,corporate_event,mkt,2,-33.49613149230613,-3.0329284815810715,825
+keyword,news category,corporate_event,mkt,3,-34.262608460607545,-2.540061303947948,824
+keyword,news category,corporate_event,mkt,5,-37.692328563984596,-1.8954842753259313,819
+keyword,news category,earnings_guidance,raw,0,111.8232253076954,5.824454928361676,1269
+keyword,news category,earnings_guidance,raw,1,2.1123924263325606,0.165208162715316,1269
+keyword,news category,earnings_guidance,raw,2,-8.249138250248496,-0.3538901000246173,1269
+keyword,news category,earnings_guidance,raw,3,-4.708382356546949,-0.1742836291292879,1266
+keyword,news category,earnings_guidance,raw,5,22.930397656270465,0.6403275959771085,1262
+keyword,news category,earnings_guidance,mkt,0,105.24302394127281,6.899259980894137,1269
+keyword,news category,earnings_guidance,mkt,1,6.271195037115946,0.5718202242828271,1269
+keyword,news category,earnings_guidance,mkt,2,-10.085172240691014,-0.6149534288138967,1269
+keyword,news category,earnings_guidance,mkt,3,-13.539487768130321,-0.7714366030296957,1266
+keyword,news category,earnings_guidance,mkt,5,-16.267136780069592,-0.6814962808303743,1262
+keyword,news category,other,raw,0,49.42813514317334,6.955440699486431,4318
+keyword,news category,other,raw,1,3.0986006346198716,0.5960700640831744,4320
+keyword,news category,other,raw,2,2.348040170524799,0.2863711688045273,4310
+keyword,news category,other,raw,3,13.782687952348168,1.2719589496290953,4297
+keyword,news category,other,raw,5,19.038100496314076,1.3039360637213366,4281
+keyword,news category,other,mkt,0,45.168442537861324,7.878487204857502,4318
+keyword,news category,other,mkt,1,1.4219265532882737,0.36018320016949634,4320
+keyword,news category,other,mkt,2,-4.211030731421357,-0.7252181717462562,4310
+keyword,news category,other,mkt,3,0.0663029622532702,0.008529442779509367,4297
+keyword,news category,other,mkt,5,6.330295915954151,0.5779905308832967,4281

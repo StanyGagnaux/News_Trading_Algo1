@@ -1,0 +1,37 @@
+training only | minute bars 2020-07-27 -> 2024-04-29 (12,118,900 rows, 179 tickers) | raw returns (no intraday index)
+  keyword: 10,862 RTH headline events with bars; 58% have all main windows
+  llm_anon: 11,966 RTH headline events with bars; 59% have all main windows
+
+  [keyword] common sample   cells: mean bps (t clustered by date)
+    category                 N            pre_30           post_30           post_60        post_close
+    all                  6,331      +0.6 (+0.21)      -0.5 (-0.30)      +1.8 (+1.03)      +0.4 (+0.11)
+    analyst              2,961      +2.6 (+1.24)      +1.6 (+0.93)      +2.4 (+0.86)      -2.4 (-0.45)
+    corporate_event        528      +3.7 (+1.12)      -2.1 (-0.60)      -0.1 (-0.02)      +9.9 (+1.23)
+    earnings_guidance      540      +8.8 (+1.58)      -0.4 (-0.09)      -2.3 (-0.35)      +4.5 (+0.44)
+    other                2,302      -4.7 (-0.67)      -2.8 (-0.82)      +2.5 (+0.94)      +0.8 (+0.19)
+
+  [keyword] pre_60 subset sample   cells: mean bps (t clustered by date)
+    category                 N            pre_60           post_60
+    all                  5,193      -2.8 (-0.52)      +2.0 (+1.08)
+    analyst              2,271      +4.0 (+1.15)      +1.4 (+0.49)
+    corporate_event        469      +4.9 (+1.19)      -0.9 (-0.24)
+    earnings_guidance      455      +8.1 (+1.40)      -1.2 (-0.16)
+    other                1,998     -14.9 (-1.12)      +4.1 (+1.50)
+
+  [llm_anon] common sample   cells: mean bps (t clustered by date)
+    category                 N            pre_30           post_30           post_60        post_close
+    all                  7,054     +12.5 (+2.31)      +2.9 (+1.51)      +1.3 (+0.79)      +6.1 (+2.00)
+    analyst                468      +9.1 (+1.90)      +3.6 (+0.92)      +4.4 (+0.80)      +9.4 (+1.05)
+    corporate_event      1,860      +4.7 (+1.32)      -1.3 (-0.58)      -0.3 (-0.11)      +4.7 (+0.87)
+    earnings_guidance    2,361     +10.9 (+3.49)      +1.3 (+0.65)      +2.5 (+0.79)      +8.7 (+1.81)
+    other                2,365     +20.9 (+1.36)      +7.8 (+1.68)      +0.7 (+0.19)      +3.8 (+0.62)
+
+  [llm_anon] pre_60 subset sample   cells: mean bps (t clustered by date)
+    category                 N            pre_60           post_60
+    all                  5,894     +20.2 (+1.83)      -0.3 (-0.21)
+    analyst                413     +14.5 (+1.41)      +2.7 (+0.52)
+    corporate_event      1,634      +8.6 (+1.87)      -4.2 (-1.40)
+    earnings_guidance    1,788     +14.0 (+2.88)      +0.9 (+0.25)
+    other                2,059     +36.0 (+1.18)      +1.1 (+0.25)
+
+  saved intraday_description_2026-10-18.csv in outputs/
