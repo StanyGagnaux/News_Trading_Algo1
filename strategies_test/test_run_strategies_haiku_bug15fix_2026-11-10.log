@@ -1,0 +1,94 @@
+loading real data...
+  171 tickers | 389,658 price rows | 458,059 headlines
+  empirical half-spread 1.43 bps -> 2.43 bps per side
+  using LLM scores from data_sources/news_scored_haiku_anon_incl_test.csv (90,356 headlines scored -- CAUTION: this is a small subset of the ~40k that would need scoring for a fair comparison against the keyword baseline; treat results as preliminary/noisy until coverage is much larger)
+  17,953 signals pass the noise gate
+  drawdown governor (all strategies): designed | risk scale: outputs/risk_calibration_haiku_bug15fix_2026-11-10.csv | one position per ticker: True
+
+SPLIT (80%/20%), fixed before any tuning:
+  IN-SAMPLE     2016-01-04 -> 2024-04-29
+  OUT-OF-SAMPLE 2024-04-30 -> 2026-06-01
+
+======================================================================
+STRATEGY A -- DAILY DRIFT: enter next day's open, hold 1-3 days
+======================================================================
+  A_daily_1-3d_fixed_llm: IS Sharpe -0.53 | OOS Sharpe -1.17
+  A_daily_1-3d_kelly_llm: IS Sharpe -0.49 | OOS Sharpe -1.55
+  BENCHMARK_momentum = stored continuous series outputs/momentum_continuous_equity_2026-10-24.csv (not rerun)
+
+STRATEGIES B AND C NOT RUN (--only-a; Bug 15 correction, note of 10 Nov 2026)
+
+======================================================================
+RESULTS -- IN-SAMPLE (fitted) vs OUT-OF-SAMPLE (unseen)
+======================================================================
+                       IS_return_pa IS_sharpe IS_maxDD IS_trades IS_hit_rate   IS_R2
+strategy                                                                            
+A_daily_1-3d_fixed_llm        -0.6%     -0.53     5.0%    10,998       49.3%  0.0001
+A_daily_1-3d_kelly_llm        -0.5%     -0.49     5.0%    10,998       49.3%  0.0001
+BENCHMARK_momentum             0.5%      0.17     6.9%         -           -       -
+
+                       OOS_return_pa OOS_sharpe OOS_maxDD OOS_trades OOS_hit_rate  OOS_R2
+strategy                                                                                 
+A_daily_1-3d_fixed_llm         -1.6%      -1.17      3.7%      4,366        47.3%  0.0001
+A_daily_1-3d_kelly_llm         -1.7%      -1.55      3.7%      4,366        47.3%  0.0001
+BENCHMARK_momentum              1.6%       0.72      2.6%          -            -       -
+
+======================================================================
+OVERFITTING CHECK (OOS Sharpe / IS Sharpe)
+======================================================================
+  A_daily_1-3d_fixed_llm                -   in-sample edge was already negative/zero
+  A_daily_1-3d_kelly_llm                -   in-sample edge was already negative/zero
+  BENCHMARK_momentum                 4.30   HELD UP -- edge survived on unseen data
+
+======================================================================
+STATISTICAL SIGNIFICANCE
+======================================================================
+  deflated Sharpe vs the best of N = 155 tries by luck, luck = null variance
+  luck benchmark (annual Sharpe): IS 0.93-0.93, OOS 1.86-1.86
+  strategy                         period  Sharpe   ± SE   DSR      R2    corr      t       n
+  A_daily_1-3d_fixed_llm           IS     -0.53   0.35  0.00  0.0001  -0.011  -1.16  10,998
+  A_daily_1-3d_fixed_llm           OOS    -1.17   0.70  0.00  0.0001  +0.009  +0.62   4,366
+  A_daily_1-3d_kelly_llm           IS     -0.49   0.35  0.00  0.0001  -0.011  -1.16  10,998
+  A_daily_1-3d_kelly_llm           OOS    -1.55   0.70  0.00  0.0001  +0.009  +0.62   4,366
+  BENCHMARK_momentum               IS      0.17   0.35 - - - -       0
+  BENCHMARK_momentum               OOS     0.72   0.69 - - - -       0
+
+======================================================================
+SHARPE DIFFERENCES (Jobson-Korkie with Memmel correction; annualised)
+======================================================================
+  [strategy_minus_momentum]
+    A_daily_1-3d_fixed_llm            IS   dSR -0.71 +- 0.48  z -1.48  p 0.138 | exposure 0.09
+    A_daily_1-3d_fixed_llm            OOS  dSR -1.91 +- 0.97  z -1.98  p 0.048 | exposure 0.13
+    A_daily_1-3d_kelly_llm            IS   dSR -0.67 +- 0.48  z -1.39  p 0.165 | exposure 0.07
+    A_daily_1-3d_kelly_llm            OOS  dSR -2.30 +- 0.96  z -2.39  p 0.017 | exposure 0.07
+  [kelly_minus_fixed]
+    A_daily_1-3d_llm                  IS   dSR +0.04 +- 0.32  z +0.11  p 0.909 | mean diff +0.03% p.a. (t +0.10) | exposure kelly 0.07 fixed 0.09
+    A_daily_1-3d_llm                  OOS  dSR -0.39 +- 0.66  z -0.59  p 0.557 | mean diff -0.18% p.a. (t -0.23) | exposure kelly 0.07 fixed 0.13
+
+  deflated Sharpe sensitivity (primary N = 155 above):
+                        IS_DSR_N25  OOS_DSR_N25  IS_DSR_N50  OOS_DSR_N50  IS_DSR_N100  OOS_DSR_N100
+strategy                                                                                           
+A_daily_1-3d_fixed_llm        0.00         0.00        0.00         0.00         0.00          0.00
+A_daily_1-3d_kelly_llm        0.00         0.00        0.00         0.00         0.00          0.00
+BENCHMARK_momentum             NaN          NaN         NaN          NaN          NaN           NaN
+
+HOW TO READ THIS:
+  return_pa   annualised return
+  sharpe      return per unit of risk (>1 good, >2 excellent)
+  maxDD       worst peak-to-trough loss
+  R2          does signal STRENGTH predict return SIZE?
+              0.00 = no, strength is a filter, not a dial
+  corr / t    signed correlation of |strength| with trade R, and
+              its t-stat (|t| > 2 ~ significant at 5%); n = trades
+  Sharpe SE   Lo (2002), IID; Sharpe within 2 SE of 0 = not significant
+  DSR         deflated Sharpe: probability the true Sharpe beats the
+              best of N tries by luck (> 0.95 = significant)
+  overfit     1.0 = edge fully survived on unseen data
+
+======================================================================
+HEAD-TO-HEAD: STRATEGY A (daily) vs B (intraday) vs C (intraday entry, multi-day hold)
+======================================================================
+  STRATEGY B and C did not run -- cannot compare. See warning above.
+
+saved outputs/results_both_strategies_haiku_calibrated_bug15fix_2026-11-10.csv
+saved outputs/equity_both_strategies_haiku_calibrated_bug15fix_2026-11-10.png
