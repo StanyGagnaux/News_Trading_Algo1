@@ -1,0 +1,29 @@
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: ANSS"}}}
+1. CONSISTENCY 2026-01-02 -> 2026-07-14 | seed 20261018 | 20 of 155 eligible tickers:
+   AAL, ABNB, ADI, FER, HSIC, INTC, LITE, MSFT, NCLH, NVDA, ODFL, PLTR, PYPL, RIVN, SBUX, SNPS, TXN, ULTA, WDAY, WMT
+   pooled over the 20 tickers:
+        series   corr  mean_abs_diff_bps  median_abs_diff_bps  share_gt_5bps  N_ticker_days
+close_to_close 0.9994             0.9415               0.0004         0.0084           2620
+  open_to_open 1.0000             0.1669               0.0005         0.0011           2620
+ open_to_close 0.9991             0.9221               0.0004         0.0076           2620
+   NDX vs ^NDX:
+ticker         series   corr  mean_abs_diff_bps  share_gt_5bps  N_days
+   NDX close_to_close 1.0000             0.0383         0.0000     131
+   NDX   open_to_open 1.0000             0.0004         0.0000     131
+   NDX  open_to_close 1.0000             0.0380         0.0000     131
+   largest close-to-close differences by ticker:
+ticker         series   corr  mean_abs_diff_bps  share_gt_5bps  N_days
+   AAL close_to_close 0.9972             2.1448         0.0076     131
+   FER close_to_close 0.9975             1.8716         0.0229     131
+  NVDA close_to_close 0.9971             1.6143         0.0076     131
+  INTC close_to_close 0.9996             1.3994         0.0076     131
+  SNPS close_to_close 0.9984             1.3163         0.0076     131
+3. UNIVERSE TICKERS WITHOUT BLOOMBERG PRICES: 20
+   AKAM, ALGN, BMRN, DISCA, DISCK, GEN, HAS, INSM, JBHT, LLTC, MAT, NTAP, SRCL, TCOM, TFCF, TFCFA, UAL, VOD, WTW, WYNN
+   headlines affected: 18,456 of 476,916 (3.9%); training 14,726, test 3,730
+   tickers with news among them: 19
+2. YAHOO AVAILABILITY 2026-06-02 -> 2026-10-16 (row counts only)
+   universe 193 | Yahoo cannot supply 27: ALXN, ANSS, ATVI, CA, CELG, CERN, CTXS, DISCA, DISCK, DISH, ESRX, HOLX, LLTC, MXIM, MYL, QRTEA, SGEN, SHPG, SPLK, SRCL, TFCF, TFCFA, VIAB, VMW, WBA, WFM, XLNX
+   of those, with news in 2026 (likely still active): 3 DISH, HOLX, WBA
+   partial coverage (< 90% of days): 3 BBBY, EA, WBD
+saved per-ticker table: source_consistency_2026-10-18.csv

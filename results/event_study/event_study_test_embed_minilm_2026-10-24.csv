@@ -1,0 +1,121 @@
+scorer,split,group,adj,day,mean_bps,t_clustered,N
+embed_minilm,all events,all,raw,0,-37.367607029214675,-4.520556958972809,11484
+embed_minilm,all events,all,raw,1,-8.636471921107352,-1.4330045298890437,11485
+embed_minilm,all events,all,raw,2,-17.45971861523668,-2.0270037326617616,11460
+embed_minilm,all events,all,raw,3,-30.936064570287087,-2.7834866119470756,11432
+embed_minilm,all events,all,raw,5,-54.49754531693864,-3.743495526215493,11387
+embed_minilm,all events,all,mkt,0,-24.88692644511089,-5.632833513450429,11484
+embed_minilm,all events,all,mkt,1,-5.12908617067536,-1.780278146374053,11485
+embed_minilm,all events,all,mkt,2,-2.5295767930216098,-0.5870624632735721,11460
+embed_minilm,all events,all,mkt,3,-4.608836439657394,-0.9397982394063188,11432
+embed_minilm,all events,all,mkt,5,-7.817735654610694,-1.1444148451148448,11387
+embed_minilm,|strength| tercile,low,raw,0,-32.215665687932585,-2.88321011115357,3828
+embed_minilm,|strength| tercile,low,raw,1,-23.831007078593995,-2.54321039713264,3828
+embed_minilm,|strength| tercile,low,raw,2,-36.74292178676773,-3.6455265964896246,3818
+embed_minilm,|strength| tercile,low,raw,3,-52.60140364966366,-3.8161967335117897,3811
+embed_minilm,|strength| tercile,low,raw,5,-78.16805308933596,-4.403648597153665,3795
+embed_minilm,|strength| tercile,low,mkt,0,-22.376750017841907,-3.3788510039161688,3828
+embed_minilm,|strength| tercile,low,mkt,1,-11.574194032610547,-2.7541706203083347,3828
+embed_minilm,|strength| tercile,low,mkt,2,-17.783744326929483,-2.9251026703596144,3818
+embed_minilm,|strength| tercile,low,mkt,3,-19.65827171836154,-2.446939667174968,3811
+embed_minilm,|strength| tercile,low,mkt,5,-30.423303495927904,-2.8992352601501445,3795
+embed_minilm,|strength| tercile,mid,raw,0,-32.0444297061957,-2.498216957658512,3828
+embed_minilm,|strength| tercile,mid,raw,1,-1.8257945721460294,-0.2390277230997074,3828
+embed_minilm,|strength| tercile,mid,raw,2,-13.07493255259977,-1.039968654343399,3817
+embed_minilm,|strength| tercile,mid,raw,3,-35.95577178394319,-2.2749133832029775,3802
+embed_minilm,|strength| tercile,mid,raw,5,-51.88782292643519,-2.481501305616133,3788
+embed_minilm,|strength| tercile,mid,mkt,0,-20.33247835114529,-2.2966185535396635,3828
+embed_minilm,|strength| tercile,mid,mkt,1,-0.41318627777991673,-0.08823463320726925,3828
+embed_minilm,|strength| tercile,mid,mkt,2,2.8802699491435138,0.399771246775838,3817
+embed_minilm,|strength| tercile,mid,mkt,3,-5.955730104888437,-0.7027227785156123,3802
+embed_minilm,|strength| tercile,mid,mkt,5,-2.2673988410676844,-0.20028110504540178,3788
+embed_minilm,|strength| tercile,high,raw,0,-47.842725693515746,-4.790196192963053,3828
+embed_minilm,|strength| tercile,high,raw,1,-0.2548036810877859,-0.03753557606619413,3829
+embed_minilm,|strength| tercile,high,raw,2,-2.58742023410714,-0.23097488400261687,3825
+embed_minilm,|strength| tercile,high,raw,3,-4.318747456428845,-0.31861525135643226,3819
+embed_minilm,|strength| tercile,high,raw,5,-33.481785963357986,-1.8918855100178609,3804
+embed_minilm,|strength| tercile,high,mkt,0,-31.951550966345465,-4.111432988927049,3828
+embed_minilm,|strength| tercile,high,mkt,1,-3.400329809880337,-0.6539202352676071,3829
+embed_minilm,|strength| tercile,high,mkt,2,7.2981425872701475,0.7964962315366321,3825
+embed_minilm,|strength| tercile,high,mkt,3,11.74997151068299,1.1065538164374995,3819
+embed_minilm,|strength| tercile,high,mkt,5,9.20735743374312,0.6575952151576392,3804
+embed_minilm,market-cap tercile (prior day),small,raw,0,-42.90479374856791,-3.285962122930504,3827
+embed_minilm,market-cap tercile (prior day),small,raw,1,-14.086429457260765,-1.6630660975809366,3828
+embed_minilm,market-cap tercile (prior day),small,raw,2,-18.29661102126876,-1.4894869742552936,3822
+embed_minilm,market-cap tercile (prior day),small,raw,3,-25.245100067460996,-1.7181914751628606,3812
+embed_minilm,market-cap tercile (prior day),small,raw,5,-47.909973271953525,-2.4626909333932754,3796
+embed_minilm,market-cap tercile (prior day),small,mkt,0,-30.24949149805609,-2.7139073708918127,3827
+embed_minilm,market-cap tercile (prior day),small,mkt,1,-11.934109439041036,-1.7133432086888014,3828
+embed_minilm,market-cap tercile (prior day),small,mkt,2,-2.643647699800102,-0.25505764711456835,3822
+embed_minilm,market-cap tercile (prior day),small,mkt,3,-0.345690779231984,-0.02911855920282746,3812
+embed_minilm,market-cap tercile (prior day),small,mkt,5,-3.7594635779768057,-0.2354740580073539,3796
+embed_minilm,market-cap tercile (prior day),mid,raw,0,-45.011487268649574,-4.254414074195831,3827
+embed_minilm,market-cap tercile (prior day),mid,raw,1,-5.884066101000219,-0.8252336788966003,3827
+embed_minilm,market-cap tercile (prior day),mid,raw,2,-9.426429723338922,-0.8263200638175385,3820
+embed_minilm,market-cap tercile (prior day),mid,raw,3,-21.96012470715422,-1.5690083606323764,3815
+embed_minilm,market-cap tercile (prior day),mid,raw,5,-44.00200455675472,-2.3990697067514417,3803
+embed_minilm,market-cap tercile (prior day),mid,mkt,0,-33.86937276533658,-4.674757432000878,3827
+embed_minilm,market-cap tercile (prior day),mid,mkt,1,-2.4990152211562218,-0.5543235099017172,3827
+embed_minilm,market-cap tercile (prior day),mid,mkt,2,2.3038415232878853,0.302843731016823,3820
+embed_minilm,market-cap tercile (prior day),mid,mkt,3,-0.2789478006689338,-0.03174705832242574,3815
+embed_minilm,market-cap tercile (prior day),mid,mkt,5,-2.179995830075135,-0.18516518421097353,3803
+embed_minilm,market-cap tercile (prior day),large,raw,0,-24.344020693819264,-2.9988824156833034,3828
+embed_minilm,market-cap tercile (prior day),large,raw,1,-5.716604893041244,-0.8876339980040319,3828
+embed_minilm,market-cap tercile (prior day),large,raw,2,-24.392227972351343,-2.7737629206145757,3816
+embed_minilm,market-cap tercile (prior day),large,raw,3,-45.95943148357173,-3.797492996831495,3803
+embed_minilm,market-cap tercile (prior day),large,raw,5,-72.07749091935634,-4.537496381799533,3786
+embed_minilm,market-cap tercile (prior day),large,mkt,0,-10.680311578669068,-3.1330719102152553,3828
+embed_minilm,market-cap tercile (prior day),large,mkt,1,-0.7479345801144643,-0.3189193232038456,3828
+embed_minilm,market-cap tercile (prior day),large,mkt,2,-7.008804065093542,-1.8640538816636003,3816
+embed_minilm,market-cap tercile (prior day),large,mkt,3,-13.578652352020232,-2.7838391777291975,3803
+embed_minilm,market-cap tercile (prior day),large,mkt,5,-18.0664355241972,-2.6805104375610047,3786
+embed_minilm,news category,analyst,raw,0,-20.765087909468047,-1.0532057274061062,383
+embed_minilm,news category,analyst,raw,1,3.829242206013403,0.37514134833083784,383
+embed_minilm,news category,analyst,raw,2,20.130409405388473,1.1074902054537985,383
+embed_minilm,news category,analyst,raw,3,19.575336154352645,0.8776351682099196,381
+embed_minilm,news category,analyst,raw,5,4.687241007383865,0.14136625962039878,380
+embed_minilm,news category,analyst,mkt,0,-18.21094272808366,-0.9712529250726526,383
+embed_minilm,news category,analyst,mkt,1,-3.6034754070542454,-0.3893929997561197,383
+embed_minilm,news category,analyst,mkt,2,0.2488262265309448,0.015674831166089122,383
+embed_minilm,news category,analyst,mkt,3,-3.6502053781677417,-0.18233009303203992,381
+embed_minilm,news category,analyst,mkt,5,-21.441036296287102,-0.8028945841120705,380
+embed_minilm,news category,corporate_event,raw,0,-9.42884634606608,-1.10090275974885,2793
+embed_minilm,news category,corporate_event,raw,1,-7.481619807185702,-1.1561237679856757,2793
+embed_minilm,news category,corporate_event,raw,2,-26.148410674002136,-2.6722856590374637,2786
+embed_minilm,news category,corporate_event,raw,3,-37.10002855848747,-2.942609852059791,2777
+embed_minilm,news category,corporate_event,raw,5,-50.58352320542681,-2.876318207652204,2768
+embed_minilm,news category,corporate_event,mkt,0,-2.880199682293503,-0.46779273776900476,2793
+embed_minilm,news category,corporate_event,mkt,1,-2.290763541391639,-0.5169404280650711,2793
+embed_minilm,news category,corporate_event,mkt,2,-3.5645505834836473,-0.5420589190925408,2786
+embed_minilm,news category,corporate_event,mkt,3,-3.5900433373524985,-0.4346494485878048,2777
+embed_minilm,news category,corporate_event,mkt,5,-4.20347521307704,-0.3694414985206437,2768
+embed_minilm,news category,earnings_guidance,raw,0,-39.75370426798212,-3.1644360973078474,4199
+embed_minilm,news category,earnings_guidance,raw,1,-2.625359087879987,-0.31201575336203435,4199
+embed_minilm,news category,earnings_guidance,raw,2,-1.389713971594056,-0.102252270372471,4188
+embed_minilm,news category,earnings_guidance,raw,3,-1.7242852006929608,-0.10637268270667866,4182
+embed_minilm,news category,earnings_guidance,raw,5,-30.848386549202242,-1.3962308521208193,4177
+embed_minilm,news category,earnings_guidance,mkt,0,-27.018413431810806,-2.9036265167535884,4199
+embed_minilm,news category,earnings_guidance,mkt,1,-6.276778189692867,-1.098329919636978,4199
+embed_minilm,news category,earnings_guidance,mkt,2,5.481584022494696,0.5983232215880178,4188
+embed_minilm,news category,earnings_guidance,mkt,3,10.019806494139791,0.9991603610729813,4182
+embed_minilm,news category,earnings_guidance,mkt,5,12.515132486746113,0.9370799977777878,4177
+embed_minilm,news category,other,raw,0,-55.467509950926164,-4.2362290236498605,4109
+embed_minilm,news category,other,raw,1,-16.724192906896192,-1.728677606913964,4110
+embed_minilm,news category,other,raw,2,-31.471783544253046,-2.691822265480907,4103
+embed_minilm,news category,other,raw,3,-61.310252499050016,-3.7808247287564996,4092
+embed_minilm,news category,other,raw,5,-87.02013718812086,-4.2616324678578605,4062
+embed_minilm,news category,other,mkt,0,-38.289597595029946,-5.349268330790785,4109
+embed_minilm,news category,other,mkt,1,-6.027525401381394,-1.342266540076872,4110
+embed_minilm,news category,other,mkt,2,-10.263291848260138,-1.4317890306793581,4103
+embed_minilm,news category,other,mkt,3,-20.339875449595837,-2.2861915856179977,4092
+embed_minilm,news category,other,mkt,5,-29.91468515849438,-2.5129954292846857,4062
+embed_minilm,duration,2,raw,0,-37.367607029214675,-4.520556958972809,11484
+embed_minilm,duration,2,raw,1,-8.636471921107352,-1.4330045298890437,11485
+embed_minilm,duration,2,raw,2,-17.45971861523668,-2.0270037326617616,11460
+embed_minilm,duration,2,raw,3,-30.936064570287087,-2.7834866119470756,11432
+embed_minilm,duration,2,raw,5,-54.49754531693864,-3.743495526215493,11387
+embed_minilm,duration,2,mkt,0,-24.88692644511089,-5.632833513450429,11484
+embed_minilm,duration,2,mkt,1,-5.12908617067536,-1.780278146374053,11485
+embed_minilm,duration,2,mkt,2,-2.5295767930216098,-0.5870624632735721,11460
+embed_minilm,duration,2,mkt,3,-4.608836439657394,-0.9397982394063188,11432
+embed_minilm,duration,2,mkt,5,-7.817735654610694,-1.1444148451148448,11387

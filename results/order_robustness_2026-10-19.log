@@ -1,0 +1,32 @@
+  19,655,889 minute bars | 2020-07-27 -> 2026-06-01
+
+=== keyword ===
+loading real data...
+  171 tickers | 389,658 price rows | 458,059 headlines
+  empirical half-spread 1.43 bps -> 2.43 bps per side
+  A_daily_1-3d_fixed        keyword   det -0.57 | 20 orders: mean -0.57 sd 0.000 range [-0.57, -0.57] | trades 25050-25050
+  A_daily_1-3d_kelly        keyword   det +0.40 | 20 orders: mean +0.25 sd 0.090 range [+0.12, +0.37] | trades 25050-25050
+  B_intraday_t+5min_fixed   keyword   det -4.85 | 20 orders: mean -4.85 sd 0.063 range [-4.97, -4.74] | trades 4865-4882
+  B_intraday_t+5min_kelly   keyword   det -2.39 | 20 orders: mean -2.49 sd 0.079 range [-2.60, -2.33] | trades 4863-4875
+  B_intraday_t+15min_fixed  keyword   det -2.72 | 20 orders: mean -2.55 sd 0.072 range [-2.66, -2.39] | trades 4893-4918
+  B_intraday_t+15min_kelly  keyword   det -1.33 | 20 orders: mean -1.38 sd 0.108 range [-1.57, -1.21] | trades 4885-4914
+  C_intraday_multiday_fixed keyword   det -1.88 | 20 orders: mean -1.65 sd 0.138 range [-2.02, -1.37] | trades 1605-1622
+  C_intraday_multiday_kelly keyword   det -0.73 | 20 orders: mean -0.62 sd 0.096 range [-0.82, -0.47] | trades 1608-1624
+  keyword D, deterministic engine: current table -1.74% (8040 trades) | pre-Bug-11 table -1.68% (8040 trades)
+  D_open_to_close_fixed     keyword   det -0.21 | 20 orders: mean -0.47 sd 0.213 range [-0.85, +0.03] | trades 8040-8040
+
+=== llm ===
+loading real data...
+  171 tickers | 389,658 price rows | 458,059 headlines
+  empirical half-spread 1.43 bps -> 2.43 bps per side
+  using LLM scores from /Users/stanygagnaux/Desktop/News_Trading_Algo1 /data_sources/news_scored_llm_ollama_anon.csv (59,005 headlines scored -- CAUTION: this is a small subset of the ~40k that would need scoring for a fair comparison against the keyword baseline; treat results as preliminary/noisy until coverage is much larger)
+  A_daily_1-3d_fixed        llm       det -0.09 | 20 orders: mean -0.09 sd 0.000 range [-0.09, -0.09] | trades 21819-21819
+  A_daily_1-3d_kelly        llm       det +0.63 | 20 orders: mean +0.64 sd 0.041 range [+0.56, +0.73] | trades 21814-21818
+  B_intraday_t+5min_fixed   llm       det -6.83 | 20 orders: mean -7.07 sd 0.091 range [-7.25, -6.89] | trades 6512-6540
+  B_intraday_t+5min_kelly   llm       det -3.00 | 20 orders: mean -3.44 sd 0.273 range [-3.94, -2.78] | trades 6512-6538
+  B_intraday_t+15min_fixed  llm       det -4.82 | 20 orders: mean -4.92 sd 0.048 range [-5.01, -4.83] | trades 6488-6512
+  B_intraday_t+15min_kelly  llm       det -2.46 | 20 orders: mean -2.30 sd 0.183 range [-2.64, -2.00] | trades 6489-6513
+  C_intraday_multiday_fixed llm       det -0.82 | 20 orders: mean -0.83 sd 0.185 range [-1.21, -0.51] | trades 1628-1649
+  C_intraday_multiday_kelly llm       det -1.36 | 20 orders: mean -1.38 sd 0.284 range [-1.88, -0.87] | trades 1629-1649
+
+saved order_robustness_2026-10-19.csv
