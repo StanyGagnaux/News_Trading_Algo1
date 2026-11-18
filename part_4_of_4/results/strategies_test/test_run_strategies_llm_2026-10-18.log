@@ -1,0 +1,201 @@
+/Users/stanygagnaux/Desktop/News_Trading_Algo1 /src/newsdrift/baseline.py:29: FutureWarning: The default fill_method='pad' in DataFrame.pct_change is deprecated and will be removed in a future version. Either fill in any non-leading NA values prior to calling pct_change or specify 'fill_method=None' to not fill NA values.
+  rets = close.pct_change()
+/Users/stanygagnaux/Desktop/News_Trading_Algo1 /src/newsdrift/baseline.py:31: FutureWarning: The default fill_method='pad' in DataFrame.pct_change is deprecated and will be removed in a future version. Either fill in any non-leading NA values prior to calling pct_change or specify 'fill_method=None' to not fill NA values.
+  mom = close.shift(mcfg.skip_days).pct_change(
+/Users/stanygagnaux/Desktop/News_Trading_Algo1 /src/newsdrift/baseline.py:29: FutureWarning: The default fill_method='pad' in DataFrame.pct_change is deprecated and will be removed in a future version. Either fill in any non-leading NA values prior to calling pct_change or specify 'fill_method=None' to not fill NA values.
+  rets = close.pct_change()
+/Users/stanygagnaux/Desktop/News_Trading_Algo1 /src/newsdrift/baseline.py:31: FutureWarning: The default fill_method='pad' in DataFrame.pct_change is deprecated and will be removed in a future version. Either fill in any non-leading NA values prior to calling pct_change or specify 'fill_method=None' to not fill NA values.
+  mom = close.shift(mcfg.skip_days).pct_change(
+[auto-detected intraday bars: /Users/stanygagnaux/Desktop/News_Trading_Algo1 /data_sources/bars_intraday.csv]
+loading real data...
+  171 tickers | 389,658 price rows | 458,059 headlines
+  empirical half-spread 1.43 bps -> 2.43 bps per side
+  using LLM scores from data_sources/news_scored_llm_ollama_anon_incl_test.csv (90,687 headlines scored -- CAUTION: this is a small subset of the ~40k that would need scoring for a fair comparison against the keyword baseline; treat results as preliminary/noisy until coverage is much larger)
+  36,726 signals pass the noise gate
+  drawdown governor (all strategies): designed | risk scale: outputs/risk_calibration_llm.csv | one position per ticker: True
+
+SPLIT (80%/20%), fixed before any tuning:
+  IN-SAMPLE     2016-01-04 -> 2024-04-29
+  OUT-OF-SAMPLE 2024-04-30 -> 2026-06-01
+
+======================================================================
+STRATEGY A -- DAILY DRIFT: enter next day's open, hold 1-3 days
+======================================================================
+  A_daily_1-3d_fixed_llm: IS Sharpe -0.09 | OOS Sharpe 0.83
+  A_daily_1-3d_kelly_llm: IS Sharpe 0.64 | OOS Sharpe 1.80
+
+======================================================================
+STRATEGY B -- INTRADAY: enter t+5min, t+15min after headline, exit same session (2R target)
+======================================================================
+  19,655,889 minute bars | 2020-07-27 -> 2026-06-01
+  26,574 signals during market hours with bar coverage
+
+  -- entry latency t+5min --
+     fixed  IS  replay: {'ticker_open': 498, 'risk_cap': 1188, 'zero_size': 0, 'candidates': 8212, 'taken': 6526, 'scaled_to_cap': 0, 'governor_throttled': 0}
+     fixed  median stop 37bps | stop-outs 62% | targets 21% | partials 0%
+     fixed  OOS replay: {'ticker_open': 469, 'risk_cap': 1879, 'zero_size': 0, 'candidates': 7823, 'taken': 5475, 'scaled_to_cap': 0, 'governor_throttled': 0}
+     kelly  IS  replay: {'ticker_open': 499, 'risk_cap': 1187, 'zero_size': 0, 'candidates': 8212, 'taken': 6526, 'scaled_to_cap': 0, 'governor_throttled': 0}
+     kelly  median stop 37bps | stop-outs 62% | targets 21% | partials 0%
+     kelly  OOS replay: {'ticker_open': 469, 'risk_cap': 1880, 'zero_size': 0, 'candidates': 7823, 'taken': 5474, 'scaled_to_cap': 0, 'governor_throttled': 0}
+
+  -- entry latency t+15min --
+     fixed  IS  replay: {'ticker_open': 525, 'risk_cap': 1106, 'zero_size': 0, 'candidates': 8129, 'taken': 6498, 'scaled_to_cap': 0, 'governor_throttled': 0}
+     fixed  median stop 34bps | stop-outs 61% | targets 24% | partials 0%
+     fixed  OOS replay: {'ticker_open': 482, 'risk_cap': 1701, 'zero_size': 0, 'candidates': 7676, 'taken': 5493, 'scaled_to_cap': 0, 'governor_throttled': 0}
+     kelly  IS  replay: {'ticker_open': 525, 'risk_cap': 1106, 'zero_size': 0, 'candidates': 8129, 'taken': 6498, 'scaled_to_cap': 0, 'governor_throttled': 0}
+     kelly  median stop 34bps | stop-outs 61% | targets 24% | partials 0%
+     kelly  OOS replay: {'ticker_open': 482, 'risk_cap': 1700, 'zero_size': 0, 'candidates': 7676, 'taken': 5494, 'scaled_to_cap': 0, 'governor_throttled': 0}
+
+======================================================================
+STRATEGY C -- INTRADAY ENTRY, MULTI-DAY HOLD: enter t+15min after headline, hold up to `duration` daily bars (1-3d)
+======================================================================
+  26,574 signals during market hours with bar coverage
+     fixed  IS  replay: {'ticker_open': 3179, 'risk_cap': 11926, 'zero_size': 0, 'candidates': 16732, 'taken': 1627, 'scaled_to_cap': 0, 'governor_throttled': 0}
+     fixed  median stop 557bps | stop-outs 24% | targets 7% | time-exits 68%
+     fixed  OOS replay: {'ticker_open': 1465, 'risk_cap': 7162, 'zero_size': 0, 'candidates': 9481, 'taken': 854, 'scaled_to_cap': 0, 'governor_throttled': 0}
+     kelly  IS  replay: {'ticker_open': 3186, 'risk_cap': 11918, 'zero_size': 0, 'candidates': 16732, 'taken': 1628, 'scaled_to_cap': 0, 'governor_throttled': 0}
+     kelly  median stop 558bps | stop-outs 24% | targets 7% | time-exits 68%
+     kelly  OOS replay: {'ticker_open': 1463, 'risk_cap': 7165, 'zero_size': 0, 'candidates': 9481, 'taken': 853, 'scaled_to_cap': 0, 'governor_throttled': 0}
+
+======================================================================
+RESULTS -- IN-SAMPLE (fitted) vs OUT-OF-SAMPLE (unseen)
+======================================================================
+                              IS_return_pa IS_sharpe IS_maxDD IS_trades IS_hit_rate   IS_R2
+strategy                                                                                   
+A_daily_1-3d_fixed_llm               -0.1%     -0.09     5.0%    21,819       49.8%  0.0001
+A_daily_1-3d_kelly_llm                1.4%      0.64     5.0%    21,816       49.8%  0.0001
+BENCHMARK_momentum                    0.9%      0.30     6.8%         -           -       -
+B_intraday_t+5min_fixed_llm          -1.3%     -6.84     5.0%     6,526       30.0%  0.0003
+B_intraday_t+5min_kelly_llm          -1.3%     -2.66     4.9%     6,526       30.0%  0.0003
+B_intraday_t+15min_fixed_llm         -1.4%     -4.97     5.2%     6,498       32.5%  0.0001
+B_intraday_t+15min_kelly_llm         -1.3%     -2.57     5.2%     6,498       32.5%  0.0001
+C_intraday_multiday_fixed_llm        -1.0%     -0.86     4.1%     1,627       44.8%  0.0595
+C_intraday_multiday_kelly_llm        -1.4%     -1.46     5.7%     1,628       45.0%  0.0619
+
+                              OOS_return_pa OOS_sharpe OOS_maxDD OOS_trades OOS_hit_rate  OOS_R2
+strategy                                                                                        
+A_daily_1-3d_fixed_llm                 1.0%       0.83      1.2%      8,072        49.3%  0.0023
+A_daily_1-3d_kelly_llm                 4.0%       1.80      2.0%      8,072        49.3%  0.0023
+BENCHMARK_momentum                     2.5%       1.08      3.2%          -            -       -
+B_intraday_t+5min_fixed_llm           -1.9%      -8.47      4.1%      5,475        30.3%  0.0000
+B_intraday_t+5min_kelly_llm           -2.0%      -4.62      4.3%      5,474        30.3%  0.0000
+B_intraday_t+15min_fixed_llm          -1.5%      -4.31      3.3%      5,493        33.7%  0.0001
+B_intraday_t+15min_kelly_llm          -1.6%      -1.85      3.7%      5,494        33.7%  0.0001
+C_intraday_multiday_fixed_llm          0.3%       0.30      1.5%        854        50.2%  0.0082
+C_intraday_multiday_kelly_llm         -0.2%      -0.15      3.1%        853        50.1%  0.0083
+
+======================================================================
+OVERFITTING CHECK (OOS Sharpe / IS Sharpe)
+======================================================================
+  A_daily_1-3d_fixed_llm                -   in-sample edge was already negative/zero
+  A_daily_1-3d_kelly_llm             2.79   HELD UP -- edge survived on unseen data
+  BENCHMARK_momentum                 3.57   HELD UP -- edge survived on unseen data
+  B_intraday_t+5min_fixed_llm           -   in-sample edge was already negative/zero
+  B_intraday_t+5min_kelly_llm           -   in-sample edge was already negative/zero
+  B_intraday_t+15min_fixed_llm          -   in-sample edge was already negative/zero
+  B_intraday_t+15min_kelly_llm          -   in-sample edge was already negative/zero
+  C_intraday_multiday_fixed_llm         -   in-sample edge was already negative/zero
+  C_intraday_multiday_kelly_llm         -   in-sample edge was already negative/zero
+
+======================================================================
+STATISTICAL SIGNIFICANCE
+======================================================================
+  deflated Sharpe vs the best of N = 139 tries by luck, luck = null variance
+  luck benchmark (annual Sharpe): IS 0.92-1.34, OOS 1.80-1.84
+  strategy                         period  Sharpe   ± SE   DSR      R2    corr      t       n
+  A_daily_1-3d_fixed_llm           IS     -0.09   0.35  0.00  0.0001  +0.012  +1.74  21,819
+  A_daily_1-3d_fixed_llm           OOS     0.83   0.70  0.08  0.0023  +0.048  +4.34   8,072
+  A_daily_1-3d_kelly_llm           IS      0.64   0.35  0.22  0.0001  +0.012  +1.72  21,816
+  A_daily_1-3d_kelly_llm           OOS     1.80   0.70  0.46  0.0023  +0.048  +4.34   8,072
+  BENCHMARK_momentum               IS      0.30   0.35 - - - -       0
+  BENCHMARK_momentum               OOS     1.08   0.70 - - - -       0
+  B_intraday_t+5min_fixed_llm      IS     -6.84   0.53  0.00  0.0003  +0.018  +1.42   6,526
+  B_intraday_t+5min_fixed_llm      OOS    -8.47   0.73  0.00  0.0000  -0.003  -0.19   5,475
+  B_intraday_t+5min_kelly_llm      IS     -2.66   0.51  0.00  0.0003  +0.018  +1.45   6,526
+  B_intraday_t+5min_kelly_llm      OOS    -4.62   0.70  0.00  0.0000  -0.002  -0.18   5,474
+  B_intraday_t+15min_fixed_llm     IS     -4.97   0.52  0.00  0.0001  +0.009  +0.73   6,498
+  B_intraday_t+15min_fixed_llm     OOS    -4.31   0.69  0.00  0.0001  +0.009  +0.69   5,493
+  B_intraday_t+15min_kelly_llm     IS     -2.57   0.51  0.00  0.0001  +0.009  +0.73   6,498
+  B_intraday_t+15min_kelly_llm     OOS    -1.85   0.68  0.00  0.0001  +0.009  +0.67   5,494
+  C_intraday_multiday_fixed_llm    IS     -0.86   0.51  0.00  0.0595  -0.244 -10.14   1,627
+  C_intraday_multiday_fixed_llm    OOS     0.30   0.69  0.01  0.0082  -0.090  -2.65     854
+  C_intraday_multiday_kelly_llm    IS     -1.46   0.51  0.00  0.0619  -0.249 -10.36   1,628
+  C_intraday_multiday_kelly_llm    OOS    -0.15   0.69  0.00  0.0083  -0.091  -2.66     853
+
+======================================================================
+SHARPE DIFFERENCES (Jobson-Korkie with Memmel correction; annualised)
+======================================================================
+  [strategy_minus_momentum]
+    A_daily_1-3d_fixed_llm            IS   dSR -0.39 +- 0.45  z -0.88  p 0.378 | exposure 0.10
+    A_daily_1-3d_fixed_llm            OOS  dSR -0.24 +- 0.87  z -0.28  p 0.781 | exposure 0.13
+    A_daily_1-3d_kelly_llm            IS   dSR +0.34 +- 0.46  z +0.72  p 0.469 | exposure 0.15
+    A_daily_1-3d_kelly_llm            OOS  dSR +0.70 +- 0.96  z +0.73  p 0.465 | exposure 0.18
+    B_intraday_t+5min_fixed_llm       IS   dSR -7.52 +- 0.74  z -10.14  p 0.000 | exposure 0.06
+    B_intraday_t+5min_fixed_llm       OOS  dSR -9.93 +- 1.02  z -9.71  p 0.000 | exposure 0.10
+    B_intraday_t+5min_kelly_llm       IS   dSR -3.21 +- 0.73  z -4.37  p 0.000 | exposure 0.06
+    B_intraday_t+5min_kelly_llm       OOS  dSR -5.96 +- 1.04  z -5.72  p 0.000 | exposure 0.09
+    B_intraday_t+15min_fixed_llm      IS   dSR -5.59 +- 0.74  z -7.57  p 0.000 | exposure 0.10
+    B_intraday_t+15min_fixed_llm      OOS  dSR -5.62 +- 0.99  z -5.69  p 0.000 | exposure 0.15
+    B_intraday_t+15min_kelly_llm      IS   dSR -3.12 +- 0.74  z -4.19  p 0.000 | exposure 0.09
+    B_intraday_t+15min_kelly_llm      OOS  dSR -3.11 +- 1.00  z -3.12  p 0.002 | exposure 0.18
+    C_intraday_multiday_fixed_llm     IS   dSR -1.36 +- 0.71  z -1.92  p 0.055 | exposure 0.05
+    C_intraday_multiday_fixed_llm     OOS  dSR -0.78 +- 0.97  z -0.81  p 0.419 | exposure 0.05
+    C_intraday_multiday_kelly_llm     IS   dSR -1.97 +- 0.72  z -2.73  p 0.006 | exposure 0.03
+    C_intraday_multiday_kelly_llm     OOS  dSR -1.24 +- 0.98  z -1.26  p 0.207 | exposure 0.05
+  [kelly_minus_fixed]
+    A_daily_1-3d_llm                  IS   dSR +0.73 +- 0.34  z +2.16  p 0.031 | mean diff +1.55% p.a. (t +2.35) | exposure kelly 0.15 fixed 0.10
+    A_daily_1-3d_llm                  OOS  dSR +0.94 +- 0.60  z +1.57  p 0.118 | mean diff +2.97% p.a. (t +2.45) | exposure kelly 0.18 fixed 0.13
+    B_intraday_t+5min_llm             IS   dSR +4.21 +- 0.55  z +7.62  p 0.000 | mean diff +0.04% p.a. (t +0.18) | exposure kelly 0.06 fixed 0.06
+    B_intraday_t+5min_llm             OOS  dSR +3.89 +- 0.77  z +5.08  p 0.000 | mean diff -0.08% p.a. (t -0.30) | exposure kelly 0.09 fixed 0.10
+    B_intraday_t+15min_llm            IS   dSR +2.42 +- 0.54  z +4.48  p 0.000 | mean diff +0.02% p.a. (t +0.10) | exposure kelly 0.09 fixed 0.10
+    B_intraday_t+15min_llm            OOS  dSR +2.48 +- 0.69  z +3.60  p 0.000 | mean diff -0.11% p.a. (t -0.22) | exposure kelly 0.18 fixed 0.15
+    C_intraday_multiday_llm           IS   dSR -0.60 +- 0.46  z -1.31  p 0.189 | mean diff -0.48% p.a. (t -1.00) | exposure kelly 0.03 fixed 0.05
+    C_intraday_multiday_llm           OOS  dSR -0.44 +- 0.55  z -0.81  p 0.415 | mean diff -0.48% p.a. (t -0.71) | exposure kelly 0.05 fixed 0.05
+
+  deflated Sharpe sensitivity (primary N = 139 above):
+                               IS_DSR_N25  OOS_DSR_N25  IS_DSR_N50  OOS_DSR_N50  IS_DSR_N100  OOS_DSR_N100
+strategy                                                                                                  
+A_daily_1-3d_fixed_llm               0.01         0.21        0.00         0.14         0.00          0.09
+A_daily_1-3d_kelly_llm               0.45         0.72        0.35         0.61         0.26          0.51
+BENCHMARK_momentum                    NaN          NaN         NaN          NaN          NaN           NaN
+B_intraday_t+5min_fixed_llm          0.00         0.00        0.00         0.00         0.00          0.00
+B_intraday_t+5min_kelly_llm          0.00         0.00        0.00         0.00         0.00          0.00
+B_intraday_t+15min_fixed_llm         0.00         0.00        0.00         0.00         0.00          0.00
+B_intraday_t+15min_kelly_llm         0.00         0.00        0.00         0.00         0.00          0.00
+C_intraday_multiday_fixed_llm        0.00         0.06        0.00         0.03         0.00          0.02
+C_intraday_multiday_kelly_llm        0.00         0.01        0.00         0.01         0.00          0.00
+
+======================================================================
+LATENCY DECAY -- does entering later cost you edge?
+======================================================================
+  [fixed]
+  [kelly]
+
+HOW TO READ THIS:
+  return_pa   annualised return
+  sharpe      return per unit of risk (>1 good, >2 excellent)
+  maxDD       worst peak-to-trough loss
+  R2          does signal STRENGTH predict return SIZE?
+              0.00 = no, strength is a filter, not a dial
+  corr / t    signed correlation of |strength| with trade R, and
+              its t-stat (|t| > 2 ~ significant at 5%); n = trades
+  Sharpe SE   Lo (2002), IID; Sharpe within 2 SE of 0 = not significant
+  DSR         deflated Sharpe: probability the true Sharpe beats the
+              best of N tries by luck (> 0.95 = significant)
+  overfit     1.0 = edge fully survived on unseen data
+
+======================================================================
+HEAD-TO-HEAD: STRATEGY A (daily) vs B (intraday) vs C (intraday entry, multi-day hold)
+======================================================================
+  BEST A (daily)                      A_daily_1-3d_kelly_llm
+      OOS return +4.0% | Sharpe 1.80 | maxDD 2.0% | trades 8,072
+  BEST B (intraday same-session)      B_intraday_t+15min_kelly_llm
+      OOS return -1.6% | Sharpe -1.85 | maxDD 3.7% | trades 5,494
+  BEST C (intraday, multi-day hold)   C_intraday_multiday_fixed_llm
+      OOS return +0.3% | Sharpe 0.30 | maxDD 1.5% | trades 854
+
+  >>> WINNER on out-of-sample Sharpe: STRATEGY A (daily)
+      A (daily) (1.80) > C (intraday entry, multi-day hold) (0.30) > B (intraday same-session) (-1.85)
+
+saved outputs/results_both_strategies_llm_calibrated.csv
+saved outputs/equity_both_strategies_llm_calibrated.png
