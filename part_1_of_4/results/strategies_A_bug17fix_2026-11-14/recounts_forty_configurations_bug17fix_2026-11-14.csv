@@ -1,0 +1,16 @@
+item,before (A rows of the Bug 16 correction run),after (Bug 17 correction run 2026-11-14)
+configurations,40,40
+losing_in_test,36,35
+significantly_worse_than_momentum_5pct,24,22
+largest_p_among_significantly_worse,0.048362494274778,0.048362494274778
+smallest_p_not_significant,0.0539680486749378,0.0567438685096453
+better_than_momentum_point_estimate,2,2
+se_sharpe_diff_min,0.8057785018475616,0.8238058212232923
+se_sharpe_diff_max,1.0812687220103467,1.079793369327226
+training_maxDD_min,0.0431818544575871,0.0448836665581443
+training_maxDD_max,0.0525056599523567,0.0524734599405264
+best_keyword,"C_minute_multiday_fixed | Sharpe -0.4208 | DSR 0.000606 (N 139) | vs momentum -1.1514, p 0.2047","C_minute_multiday_fixed | Sharpe -0.4208 | DSR 0.000606 (N 139) | vs momentum -1.1514, p 0.2047"
+best_llm,"A_daily_1-3d_kelly_llm | Sharpe 1.0753 | DSR 0.131359 (N 139) | vs momentum +0.3403, p 0.7209","A_daily_1-3d_kelly_llm | Sharpe 1.2981 | DSR 0.201982 (N 139) | vs momentum +0.5591, p 0.5600"
+best_embed_minilm,"C_minute_multiday_kelly_llm | Sharpe -1.0302 | DSR 0.000000 (N 155) | vs momentum -1.7785, p 0.0759","A_daily_1-3d_kelly_llm | Sharpe -0.7904 | DSR 0.000055 (N 155) | vs momentum -1.5237, p 0.1440"
+best_haiku,"C_minute_multiday_kelly_llm | Sharpe 0.7577 | DSR 0.044688 (N 155) | vs momentum +0.0559, p 0.9554","C_minute_multiday_kelly_llm | Sharpe 0.7577 | DSR 0.044688 (N 155) | vs momentum +0.0559, p 0.9554"
+best_sonnet,"C_minute_multiday_kelly_llm | Sharpe 0.2303 | DSR 0.010672 (N 163) | vs momentum -0.4353, p 0.6653","C_minute_multiday_kelly_llm | Sharpe 0.2303 | DSR 0.010672 (N 163) | vs momentum -0.4353, p 0.6653"
