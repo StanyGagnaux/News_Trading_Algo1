@@ -170,39 +170,3 @@ refuses to overwrite its output.
 redistribution), news and minute bars from Alpaca (re-downloadable with
 `src/fetch_historical_news.py` and `src/fetch_intraday_bars.py`). Expected files and their locations are in
 `src/paths.py`.
-
-## Other result files
-
-- **Order noise (Bug 12), training period.** Across 20 random orderings of
-  same-day signals the training Sharpe ratio of Strategy A has a standard
-  deviation of 0.000 (fixed sizing) and 0.038 (keyword) or 0.029 (Llama) with
-  Kelly sizing, on the engine and scales of 14 November
-  (`results/order_robustness_bug17fix_2026-11-14.csv` and its note). For B the
-  standard deviation is 0.05 to 0.31.
-- **Hash registers and verification of the correction runs:**
-  `results/frozen/FROZEN_RUN_outputs_hashes_bug15fix_2026-11-10.txt`, `…_bug16fix_2026-11-10.txt` and
-  `…_bug17fix_2026-11-14.txt` give the SHA-256 of every file of the three correction runs by file name (the
-  files sit in different folders here, so match them by name). The harness rerun of the Bug 17 run is in
-  `results/verification_2026-11-14_bug17/`. Registered files not in this folder: the superseded Bug 15 result
-  files, the harness reports and placebo logs of 8 and 10 November, and the diagnostic placebos of the code
-  before Bug 15; the project's internal working-notes file; and `README.md`, whose registered version is the
-  index of the project's `outputs/summary/` bundle, not this README.
-- **Wording edits for this release (18 November 2026).** The following registered files were edited for wording
-  only (descriptions of who did what, internal file and folder names); no number, code path, result or
-  conclusion changed. Their SHA-256 therefore no longer match the registers, which are kept as written; the
-  registered versions are kept in the project archive. `context/bugs.md`, `context/changelog.md`,
-  `context/current_state.md`, `context/results.md`, `results/order_robustness_bug17fix_2026-11-14_note.md`,
-  `results/verification_2026-11-14_bug17/verification_summary_2026-11-14_bug17.md` and, in `results/frozen/`,
-  the notes `…_bug15_2026-11-10.md`, `…_bug15_addendum_testD2_2026-11-10.md`, `…_bug15_results_2026-11-10.md`,
-  `…_bug16_results_2026-11-10.md`, `…_bug17_2026-11-14.md` and `…_bug17_results_2026-11-14.md`. Every other
-  registered file in this folder matches its register.
-- **Event studies:** `results/event_study/` (training rerun of 18 October,
-  test period, and the clustering check of 14 November).
-- The keyword D row in `results/sweeps/sweep_new_strategies_keyword.csv` and
-  the "before" rows in `results/atr_fix_before_after_2026-10-13.csv` are kept
-  as records and should not be quoted.
-
-**Unused (kept as a record):** `src/holdout_eval.py`, `src/h3.py` and their
-tests, and `results/holdout_unused/` — the holdout and its hypothesis H3 were
-dropped before any holdout return was computed
-(`results/frozen/FROZEN_CONFIG_2026-10-18_note_holdout_dropped.md`).
